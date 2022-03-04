@@ -40,8 +40,8 @@ int mChainDP(int arr[], int n)
 
 int main()
 {
-	int arr[]={1,2,3,4,3};
-	int n= 5;
+	int arr[]={1,2,3,4};
+	int n= 4;
 	cout<<mChain(arr,0,n-1)<<endl;
 	cout<<mChainDP(arr,n);
 	return 0;
