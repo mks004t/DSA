@@ -1,6 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
-//way 1 : find the lcs of s1,reverseof(s1), copy
+//way 1 : find the lcs of s1,reverseof(s1), notebook
 
 //Way 2 : gap method
 int lps(string s,int n)
