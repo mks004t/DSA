@@ -12,7 +12,7 @@ bool isSafe(int Queen[][N], int row, int column )
 	// Upper Diagonal
 	
 	for(int i=row,j=column; i>=0 && j>=0; i--,j--)
-	if(Queen[i][j])
+	      if(Queen[i][j])
 				return false;
 
 	//Lower diagonal

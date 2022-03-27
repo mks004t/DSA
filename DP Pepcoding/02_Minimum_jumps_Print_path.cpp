@@ -37,6 +37,7 @@ void printPath(int arr[],int dp[],int n)
 	}		
 }
 
+// O(N*N) time comp & O(N) space // better solution in DSA CODE O(N)
 int minJumps(int arr[],int n)
 {   
 	int dp[n];
