@@ -14,7 +14,7 @@ bool isBST(Node *root, int min, int max)
 
 	rerurn (root->data<min && root->data>max
 		     && isBST(root->left,min,root->data)
-		     && misBST(root->right,root->data,max));
+		     && isBST(root->right,root->data,max));
 
 }
 
