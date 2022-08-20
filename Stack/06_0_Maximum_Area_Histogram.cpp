@@ -1,11 +1,12 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-
+//Time comp O(N) but need 3 triversal;
+// Space complexity O(N) but need 2 arrays;
 vector<int> getLeftSmaller(int arr[],int n)
 {
 	stack<pair<int,int>> s;
-	vector<int> v(n,-1);        //all element of 7
+	vector<int> v(n);        //all element of 7
 
 	for(int i=0; i<n; i++)
 	{
@@ -34,7 +35,7 @@ vector<int> getLeftSmaller(int arr[],int n)
 vector<int> getRightSmaller(int arr[],int n)
 {
 	stack<pair<int,int>> s;
-	vector<int> v(n,n);
+	vector<int> v(n);
 
 	for(int i=n-1; i>=0; i--)
 	{
@@ -66,9 +67,9 @@ int getMaxArea(int arr[],int n)
 	vector<int> NSR =getRightSmaller(arr,n);
 
 	int maxArea=0;
-	for(int i=0;i<n;i++)
+	for(int i=0; i<n; i++)
 	{
-	  cout<<NSR[i]<<" ";
+	  cout<<NSR[i]<<" "<<NSL[i]<<endl;
 		maxArea=max(maxArea, (arr[i]*(NSR[i]-NSL[i]-1)) );
 	}
     cout<<endl;

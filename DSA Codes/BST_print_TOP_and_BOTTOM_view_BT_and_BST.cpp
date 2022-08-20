@@ -11,7 +11,7 @@ void printTopView(Node *root)
 		auto p=q.front();
 		Node *curr=p.first;
 		int hd=p.second;
-		if(mp.count(hd)=0)     // for bottom view no nneed to write this if condition,  so the value changed to bottom
+		if(mp.count(hd)=0)     // for bottom view no need to write this if condition,  so the value changed to bottom
 			mp[hd]=root->val;
 		if(curr->left!=false)
 			q.push(curr->left,hd-1);

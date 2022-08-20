@@ -22,12 +22,7 @@ int maxWidth(Node *root)
 				q.push(curr->left);
 			if(curr->right!=NULL)
 				q.push(curr->right);
-
-
 		}
-
 	}
-
 	return res;
-
 }

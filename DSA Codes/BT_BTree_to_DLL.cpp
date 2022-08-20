@@ -9,22 +9,19 @@ Node *prev=NULL;
 
 Node *BTtoDLL(Node *root)
 {
-	if(root=NULL) return root;
+	if(root==NULL) return root;
 
 	Node *head=BTtoDLL(root->left);
 	if(prev==NULL) head=root;
 
 	else
 	{
-		root->left=prev;
-		prev->right=root;
-
+		root->left=prev;  // backword pointer /linking
+		prev->right=root; //forword linking
 	}
 
 	prev=root;
 	BTtoDLL(root->right);
+	
 	return head;
-
-
-
 }

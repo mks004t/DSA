@@ -12,7 +12,7 @@ void Push(int x)
   	minEle=x;
   }
 
-  else if (minEle > x)
+  else if (minEle >= x)
   {
   	s.push(2*x-minEle);
   	minEle=x;
@@ -31,7 +31,7 @@ void Pop()
        cout<<"Stack is Empty "<<endl;
     }
 
-   else if(s.top()< minEle)
+   else if(s.top()<= minEle)
    {
    	 minEle=2*minEle-s.top();
    	 //cout<<minEle<<endl;

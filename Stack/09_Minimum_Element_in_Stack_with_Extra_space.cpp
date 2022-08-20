@@ -2,7 +2,7 @@
 using namespace std;
 
 stack<int> s;
-stack<int> ss;
+stack<int> ss; 
 
 // get min in O(1)
 

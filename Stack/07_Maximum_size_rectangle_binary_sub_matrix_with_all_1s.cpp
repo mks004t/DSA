@@ -2,78 +2,40 @@
 using namespace std;
 
 //Given a binary matrix, find the maximum size rectangle binary-sub-matrix with all 1’s. 
-// based on previous Question
+// based on previous Question (Largest / Maximum area in Histogram)
 
 // Time comp: O(R*C) & Space Comp: O(C)
-vector<int> getLeftSmaller(int arr[],int n)
+int getMaxArea(int arr[],int n)
 {
-	stack<pair<int,int>> s;
-	vector<int> v(n,-1);        //all element of 7
+	stack<int> s;
+	int res=0;
+	int tp;     //  temp index, which is larger and removed from stack;
+	int curr;   // it store the curr area.
 
 	for(int i=0; i<n; i++)
 	{
-		if(s.empty())
-			v[i]= -1;          // 
-
-		else if(!s.empty() && s.top().first <arr[i])
-			v[i]=s.top().second;
-		else
+		while(s.empty()==false && arr[s.top()]>=arr[i])
 		{
-			while(!s.empty() && s.top().first >= arr[i])
-				s.pop();
+			tp=s.top();
+			s.pop();
 
-			if(s.empty())
-			   	v[i]= -1;
-			  
-			else
-				v[i]=s.top().second;
+			curr= arr[tp]* (s.empty() ? i : (i-s.top()-1) );
+			res=max(res, curr);
 		}
-
-		s.push(make_pair(arr[i],i));
+		s.push(i);
 	}
-    return v;
-}
 
-vector<int> getRightSmaller(int arr[],int n)
-{
-	stack<pair<int,int>> s;
-	vector<int> v(n,n);
-
-	for(int i=n-1; i>=0; i--)
+	// now we are remain with elements whose next smaler doesnot exist
+	while(s.empty()==false)
 	{
-		if(s.empty())
-			v[i]= n;
+		tp=s.top();
+		s.pop();
 
-		else if(!s.empty() && s.top().first <arr[i])
-			v[i]= s.top().second;
-		else
-		{
-			while(!s.empty() && s.top().first >= arr[i])
-				s.pop();
-
-			if(s.empty())
-			   	v[i]= n;
-			  
-			else
-				v[i]= s.top().second;
-		}
-
-		s.push(make_pair(arr[i],i));
+		curr=arr[tp]* (s.empty() ? n : n-s.top()-1);
+		res=max(res,curr);
 	}
-    return v;
-}
-
-int getMaxArea(int arr[],int n)
-{
-	vector<int> NSL =getLeftSmaller(arr,n);
-	vector<int> NSR =getRightSmaller(arr,n);
-
-	int maxArea=0;
-	for(int i=0;i<n;i++)
-	{
-		maxArea=max(maxArea, (arr[i]*(NSR[i]-NSL[i]-1)) );
-	}
-	return maxArea;
+	
+	return res;
 }
 
 int main()

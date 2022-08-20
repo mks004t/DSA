@@ -3,7 +3,7 @@ using namespace std;
 
 // same as "nearest greater to left" but save index;
 // print consicutive smaller or equal before it (consicutive)
-void stockSpain(int arr[],int n)
+void stockSpan(int arr[],int n)
 {
 	stack<pair<int,int>> s;
 	int ans[n];
@@ -35,14 +35,42 @@ void stockSpain(int arr[],int n)
      	cout<<ans[i]<<" ";
 }
 
+
+// some improvement of the above code
+// space optimised O(n)time and space complx.
+
+void printSpan(int arr[],int n)
+{
+	stack<int>s;
+
+	s.push(0);  // span of firt element is always 1
+	cout<<1<<" "; 
+
+	for(int i=1; i<n; i++)
+	{
+		while(s.empty()==false && arr[s.top()]<=arr[i])
+		{
+			s.pop();
+		}
+
+		int span = s.empty() ? i+1 : i-s.top();
+		cout<<span<<" ";
+		s.push(i);
+	}
+}
+
+
 int main()
 {
 	int arr[]={15,13,12,14,16,8,6,4,10,30};  
 	int n=sizeof(arr)/sizeof(arr[0]);
 	
-	stockSpain(arr,n);
+	stockSpan(arr,n);
+	cout<<endl;
+	printSpan(arr,n);
 	return 0;
 }
 
 // I/P : { 10, 4, 5, 90, 120, 80 }
 // O/P :   1   1  2   4   5   1 
+

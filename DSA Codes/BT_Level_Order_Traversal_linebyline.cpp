@@ -22,13 +22,13 @@ void printLevelOrderLine(Node *root)
 	}
 
 
-		cout<<(curr-> key)<<" ";
+	cout<<(curr-> key)<<" ";
 
-		
-		if(curr->left!==NULL)
-			 q.push(curr->left);
-		if(curr->right!=NULL)
-		     q.push(curr->right);
+	
+	if(curr->left!==NULL)
+		 q.push(curr->left);
+	if(curr->right!=NULL)
+	     q.push(curr->right);
 
 
 	}

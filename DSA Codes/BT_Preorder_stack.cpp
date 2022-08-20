@@ -23,6 +23,4 @@ void iterativePreorder(Node *root)
 			s.pop();            //pop top item from stack
 		}
 	}
-
-
 }

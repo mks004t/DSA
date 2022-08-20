@@ -29,8 +29,5 @@ Node *printBTspiral(Node *root)
     		if(curr->right!=NULL) s1.push(curr->right);
     		if(curr->left!=NULL)  s1.push(curr->left);
     	}
-
-
     }
-
 }

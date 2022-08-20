@@ -11,6 +11,7 @@ struct Node
 		next = NULL;
 	}
 };
+
 /*
    Nive method use stack.
    Traverse through LL and put element in stack.
